@@ -14,11 +14,11 @@ use Illuminate\Notifications\Notification;
 class WxliteChannel
 {
 
-    private $wechat;
+    private $miniProgram;
 
     public function __construct()
     {
-        $this->wechat = app("wechat.official_account");
+        $this->miniProgram = \EasyWeChat::miniProgram();
     }
 
     /**
@@ -29,7 +29,7 @@ class WxliteChannel
     {
         $message = $notification->toWechat($notifiable);
         $openid = $notifiable->routeNotificationForWechat();
-        $this->wechat->template_message->send([
+        $this->miniProgram->subscribe_message->send([
             'touser' => $openid,
             'template_id' => $message->templateId,
             'url' => $message->url,
