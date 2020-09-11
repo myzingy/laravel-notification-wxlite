@@ -11,7 +11,7 @@ namespace Vking\WxliteChannel;
 
 use Reprover\WechatChannel\Exceptions\InvalidArgumentException;
 
-class WechatMessage
+class WxliteMessage
 {
     private $url;
     private $templateId;

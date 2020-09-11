@@ -21,7 +21,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Vking\\WxliteChannel\\WechatServiceProvider"
+        "Vking\\WxliteChannel\\WxliteServiceProvider"
       ],
       "alias": {
         "WxliteChannel": "Vking\\WxliteChannel\\Facade"

@@ -2,7 +2,9 @@
 
 
 ## 基本要求：
-php>=7.0
++ php>=7.0
++ 已集成 overtrue/laravel-wechat 并配置好了小程序信息
++ 已做好队列工作（非强制，做了更好）
 
 ## 用法：
 >composer require vking/laravel-notification-wxlite
@@ -13,7 +15,7 @@ php>=7.0
 然后
 在其中新建方法 
 >public function toWechat($notifiable){
->    return (new WechatMessage(模板id,[
+>    return (new WxliteMessage(模板id,[
 >    "key"=>"value",
 >    "key2"=>"value2"
 >    ]),跳转地址);
