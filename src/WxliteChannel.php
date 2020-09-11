@@ -10,6 +10,7 @@ namespace Vking\WxliteChannel;
 
 
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 class WxliteChannel
 {
@@ -29,12 +30,14 @@ class WxliteChannel
     {
         $message = $notification->toWechat($notifiable);
         $openid = $notifiable->routeNotificationForWechat();
-        $this->miniProgram->subscribe_message->send([
+        $params=[
             'touser' => $openid,
             'template_id' => $message->templateId,
             'url' => $message->url,
             'data' => $message->data,
-        ]);
+        ];
+        Log:info('wxlite.send',$params);
+        $this->miniProgram->subscribe_message->send($params);
     }
 
 }
