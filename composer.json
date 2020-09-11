@@ -1,6 +1,6 @@
 {
-  "name": "reprover/wechat-channel",
-  "description": "Laravel Notification Wechat Channel",
+  "name": "vking/laravel-notification-wxlite",
+  "description": "Laravel Notification Wechat lite app Channel",
   "require": {
     "php": ">=7.0.0",
     "overtrue/laravel-wechat": "~4.0"
@@ -8,23 +8,23 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Sky Lee",
-      "email": "mydr@vip.qq.com"
+      "name": "vking.wang",
+      "email": "251941666@qq.com"
     }
   ],
   "autoload": {
     "psr-0": {
-      "Reprover\\WechatChannel\\": "src/"
+      "Vking\\WxliteChannel\\": "src/"
     }
   },
   "minimum-stability": "dev",
   "extra": {
     "laravel": {
       "providers": [
-        "Reprover\\WechatChannel\\WechatServiceProvider"
+        "Vking\\WxliteChannel\\WechatServiceProvider"
       ],
       "alias": {
-        "WechatChannel": "Reprover\\WechatChannel\\Facade"
+        "WxliteChannel": "Vking\\WxliteChannel\\Facade"
       }
     }
   }

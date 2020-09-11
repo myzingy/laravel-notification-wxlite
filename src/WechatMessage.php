@@ -6,7 +6,7 @@
  * Time: 17:22
  */
 
-namespace Reprover\WechatChannel;
+namespace Vking\WxliteChannel;
 
 
 use Reprover\WechatChannel\Exceptions\InvalidArgumentException;

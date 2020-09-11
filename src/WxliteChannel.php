@@ -6,12 +6,12 @@
  * Time: 18:02
  */
 
-namespace Reprover\WechatChannel;
+namespace Vking\WxliteChannel;
 
 
 use Illuminate\Notifications\Notification;
 
-class WechatChannel
+class WxliteChannel
 {
 
     private $wechat;

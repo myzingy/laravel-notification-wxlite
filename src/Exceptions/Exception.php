@@ -1,6 +1,6 @@
 <?php
 
-namespace Reprover\WechatChannel\Exceptions;
+namespace Vking\WxliteChannel\Exceptions;
 
 class Exception extends \Exception
 {

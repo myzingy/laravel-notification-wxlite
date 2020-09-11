@@ -6,7 +6,7 @@
  * Time: 17:14
  */
 
-namespace Reprover\WechatChannel;
+namespace Vking\WxliteChannel;
 
 
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class WechatServiceProvider extends ServiceProvider
 
     public function register(){
         $this->app->singleton('WechatChannel',function($app){
-            return new WechatChannel();
+            return new WxliteChannel();
         });
     }
 

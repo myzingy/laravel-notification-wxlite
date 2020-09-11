@@ -6,7 +6,7 @@
  * Time: 16:31
  */
 
-namespace Reprover\WechatChannel;
+namespace Vking\WxliteChannel;
 
 
 class Facade extends \Illuminate\Support\Facades\Facade
@@ -14,7 +14,7 @@ class Facade extends \Illuminate\Support\Facades\Facade
 
     protected static function getFacadeAccessor()
     {
-        return 'WechatChannel';
+        return 'WxliteChannel';
     }
 
 }
