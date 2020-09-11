@@ -33,7 +33,7 @@ class WxliteChannel
         $params=[
             'touser' => $openid,
             'template_id' => $message->templateId,
-            'url' => $message->url,
+            'page' => $message->url,
             'data' => $message->data,
         ];
         Log:info('wxlite.send',$params);
