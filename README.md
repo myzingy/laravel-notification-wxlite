@@ -7,11 +7,11 @@
 + 已做好队列工作（非强制，做了更好）
 
 ## 用法：
-####1、 composer require vking/laravel-notification-wxlite
+#### 1、 composer require vking/laravel-notification-wxlite
 
-####2、 php artisan make:notification YouerNotice
+#### 2、 php artisan make:notification YouerNotice
 
-####3、 编辑 YouerNotice
+#### 3、 编辑 YouerNotice
 ```
 public $data;
 public function __construct($data)
@@ -39,14 +39,14 @@ public function toWechat($notifiable){
     );
 }
 ``` 
-####4、 你的用户模型（或wechat表模型）中增加 routeNotificationForWechat
+#### 4、 你的用户模型（或wechat表模型）中增加 routeNotificationForWechat
 ```php
 use Notifiable;
 public function routeNotificationForWechat(){
    	return $this->openid;
 }
 ```
-####5、 调用,以wechat模型为例
+#### 5、 调用,以wechat模型为例
 ```php
 #case 1，单发
 $wechat=wechat::find('openid');
@@ -57,7 +57,7 @@ $wechats=wechat::where(...)->get()
 Notification::send($wechats,new YouerNotice($一些数据));
 
 ```
-####6、 log的打印，wxlite.send 开头的数据 
+#### 6、 log的打印，wxlite.send 开头的数据 
 祝好运
 
 
