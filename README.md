@@ -7,28 +7,62 @@
 + 已做好队列工作（非强制，做了更好）
 
 ## 用法：
->composer require vking/laravel-notification-wxlite
+####1、 composer require vking/laravel-notification-wxlite
 
-然后
->php artisan make:notification OrderCreated
+####2、 php artisan make:notification YouerNotice
 
-然后
-在其中新建方法 
->public function toWechat($notifiable){
->    return (new WxliteMessage(模板id,[
->    "key"=>"value",
->    "key2"=>"value2"
->    ]),跳转地址);
->}
+####3、 编辑 YouerNotice
+```
+public $data;
+public function __construct($data)
+{
+    //
+    $this->data=$data;
+}
+public function via($notifiable)
+{
+    return [WxliteChannel::class];
+}
+#添加 toWechat 函数，名称必须是 toWechat
+public function toWechat($notifiable){
+    return new WxliteMessage(
+    "订阅消息id",
+    [
+        'name1' => [
+            'value' => $name1,
+        ],
+        'name1' => [
+            'value' => $name1,
+        ],
+    ],
+    "小程序的页面地址"
+    );
+}
+``` 
+####4、 你的用户模型（或wechat表模型）中增加 routeNotificationForWechat
+```php
+use Notifiable;
+public function routeNotificationForWechat(){
+   	return $this->openid;
+}
+```
+####5、 调用,以wechat模型为例
+```php
+#case 1，单发
+$wechat=wechat::find('openid');
+$wechat->notify(new YouerNotice($一些数据));
 
-在原有的via()方法中加上
->WechatChannel::class
+#case 2，发给多人
+$wechats=wechat::where(...)->get()
+Notification::send($wechats,new YouerNotice($一些数据));
 
-搞定～
-跟其他通知一样使用就好
+```
+####6、 log的打印，wxlite.send 开头的数据 
+祝好运
 
 
 
 ## 感谢
 >overtrue/laravel-wechat（这么完美的微信框架，做微信都离不开吧）
 >以及各种laravel-notification-channels的代码参考学习
+>等等前人
